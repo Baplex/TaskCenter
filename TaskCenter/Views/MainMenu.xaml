@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskCenter.Views.MainMenu"
+             Title="MainMenu"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout BackgroundColor="#0c4d53">
+        <!-- Main Title-->
+        <Image Source="https://ibb.co/RN48mTC" />
+        <Label Text="TaskCenter"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               FontSize="Large"
+               FontAttributes="Bold"
+               Margin="15"
+               TextColor="WhiteSmoke" />
+        <!-- Number of tasks and button that takes to task manager-->
+        <Frame VerticalOptions="FillAndExpand"
+               Margin="30"
+               CornerRadius="20"
+               BackgroundColor="Beige">
+            <Grid ColumnDefinitions="*,*"
+                  VerticalOptions="Start">
+                <Label Grid.Column="0"
+                       Text="Tasks"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="Medium"
+                       FontFamily="Times New Roman" />
+                <Button Grid.Column="1"
+                        Text="+ ADD"
+                        TextColor="#fafafa"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        TextTransform="None"
+                        BackgroundColor="#0c4d53"
+                        FontSize="Medium"
+                        CornerRadius="10"
+                        x:Name="btnTasks"
+                        Clicked="btnTasks_Clicked" />
+            </Grid>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
