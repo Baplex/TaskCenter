@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TaskCenter.Views.Tasks"
-             Title="Tasks">
+             Title="Tasks"
+             >
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add"
                      Clicked="ToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
-    <StackLayout>
+    <StackLayout BackgroundColor="#0c4d53">
         <CollectionView x:Name="myCollectionView"
                         SelectionMode="Single"
                         Margin="20, 5, 20, 0">
@@ -17,7 +18,7 @@
                         <SwipeView.RightItems>
                             <SwipeItems>
                                 <SwipeItem Text="Edit"
-                                           BackgroundColor="#0c4d53"
+                                           BackgroundColor="DarkCyan"
                                            CommandParameter="{Binding .}"
                                            Invoked="SwipeItem_Invoked"></SwipeItem>
                                 <SwipeItem Text="Complete"
@@ -26,25 +27,31 @@
                                            Invoked="SwipeItem_Invoked_1"></SwipeItem>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <Grid RowSpacing="0">
+                        <Frame BackgroundColor="Beige">
+                            <Grid RowSpacing="0"
+                              ColumnSpacing="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Id}"
                                    Grid.Row="0"
-                                   Grid.RowSpan="2"
+                                   Grid.Column="0"
                                    HorizontalOptions="CenterAndExpand"
                                    VerticalOptions="CenterAndExpand" />
                             <Label Text="{Binding ToDo}"
                                    Grid.Row="0"
                                    Grid.Column="1"
                                    VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="StartAndExpand"
                                    FontSize="20"
-                                   FontAttributes="Bold" />
+                                   FontAttributes="Bold"
+                                   LineBreakMode="WordWrap" />
                         </Grid>
+                        </Frame>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
